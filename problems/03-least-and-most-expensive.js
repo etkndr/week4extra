@@ -15,16 +15,30 @@ Least and Most Expensive Toys:
 function leastAndMostExpensive(catalog) {
     let vals = Object.values(catalog)
     let keys = Object.keys(catalog)
+    let most = Math.max(...vals)    // find largest num in vals
+    let least = Math.min(...vals)   // find smallest num in vals
     let arr = []
 
+
+    vals.forEach (function(el, i) {
+            // least expensive
+        if (el === least) {
+            arr.push(keys[i])
+        }
+            // most expensive
+        if (el === most) {
+            arr.push(keys[i])
+        }
+    })
+
     return arr
-    }
+}
 
 
     const catalog1 = {'ball': 5, 'jumprope': 3, 'yo-yo': 10, 'trading cards': 12}
-    // const catalog2 = {'skateboard': 50, 'bicycle': 100, 'doll': 10, 'puzzle': 20}
+    const catalog2 = {'skateboard': 50, 'bicycle': 100, 'doll': 10, 'puzzle': 20}
     console.log(leastAndMostExpensive(catalog1)); // prints ['jumprope', 'trading cards']
-    // console.log(leastAndMostExpensive(catalog2)); // prints ['doll', 'bicycle']
+    console.log(leastAndMostExpensive(catalog2)); // prints ['doll', 'bicycle']
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
